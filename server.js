@@ -1,5 +1,15 @@
-const app = require('./app')
+const mongoose = require("mongoose");
+const app = require("./app");
 
-app.listen(3000, () => {
-  console.log("Server running. Use our API on port: 3000")
-})
+const DB_HOST =
+  "mongodb+srv://Mango:Mango1@cluster0.uipvxuo.mongodb.net/contacts_reader?retryWrites=true&w=majority";
+mongoose
+  .connect(DB_HOST)
+  .then(() => {
+    console.log("Database connection successful")
+    app.listen(3000);
+  }) // запустили веб сервер наш
+  .catch((er) => {
+    console.log(er.message);
+    process.exit(1);
+  });
