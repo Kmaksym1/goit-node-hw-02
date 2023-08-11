@@ -8,6 +8,7 @@ const addSchema = Joi.object({
   email: Joi.string().email().required(),
 });
 
+
 module.exports = {
   addSchema,
 };
