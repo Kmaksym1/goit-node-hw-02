@@ -1,10 +1,10 @@
 const mongoose = require("mongoose");
 const app = require("./app");
 
-// const { route } = require('./routes/api/contacts')
+require('dotenv').config();
 
-const DB_HOST =
-  "mongodb+srv://Mango:Mango1@cluster0.uipvxuo.mongodb.net/contacts_reader?retryWrites=true&w=majority";
+const DB_HOST = process.env.DB_HOST;
+
 mongoose
   .connect(DB_HOST)
   .then(() => {
