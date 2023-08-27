@@ -2,10 +2,7 @@ const { HttpError, ctrlWrapper } = require("../helpers");
 const { User } = require("../shemas/user");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
-const {
-  updateUsersSubscription,
-  getUserByEmail,
-} = require("../services/user");
+const { updateUsersSubscription, getUserByEmail } = require("../services/user");
 require("dotenv").config();
 const { SECRET } = process.env;
 
@@ -81,14 +78,12 @@ const updateSubscription = async (req, res) => {
 };
 
 module.exports = {
-  // isLoggedIn,
+  renderMainPage,
+  renderLoginPage,
+  renderRegisterPage,
   registerController: ctrlWrapper(registerController),
   signInController: ctrlWrapper(signInController),
   signOutController: ctrlWrapper(signOutController),
-  renderMainPage,
-  // renderProfilePage,
-  renderLoginPage,
-  renderRegisterPage,
   getCurrent: ctrlWrapper(getCurrent),
   updateSubscription: ctrlWrapper(updateSubscription),
 };
